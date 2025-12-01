@@ -38,10 +38,10 @@ jobs:
           file: ./Dockerfile.base
           push: true
           tags: |
-            getbindu/bindu-runtimebase:${{ steps.version.outputs.VERSION }}
-            getbindu/bindu-runtimebase:latest
-          cache-from: type=registry,ref=getbindu/bindu-runtimebase:buildcache
-          cache-to: type=registry,ref=getbindu/bindu-runtimebase:buildcache,mode=max
+            raahulrahl/bindu-runtimebase:${{ steps.version.outputs.VERSION }}
+            raahulrahl/bindu-runtimebase:latest
+          cache-from: type=registry,ref=raahulrahl/bindu-runtimebase:buildcache
+          cache-to: type=registry,ref=raahulrahl/bindu-runtimebase:buildcache,mode=max
 
       - name: Image digest
         run: echo "Image pushed successfully with version ${{ steps.version.outputs.VERSION }}"
