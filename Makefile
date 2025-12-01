@@ -1,7 +1,7 @@
 .PHONY: help build push tag-latest all clean
 
 # Configuration
-IMAGE_NAME := bindu-base
+IMAGE_NAME := bindu-runtime-base
 REGISTRY := raahulrahl/getbindu
 VERSION := 1.0.0
 FULL_IMAGE := $(REGISTRY)/$(IMAGE_NAME)
