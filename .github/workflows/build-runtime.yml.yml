@@ -1,17 +1,17 @@
-name: Build and Push Docker Image
+name: Build and Push Runtime Base
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'Dockerfile.base'
+      - 'Dockerfile.runtime-base'
       - '.version'
-      - '.github/workflows/build-and-push.yml'
+      - '.github/workflows/build-runtime.yml'
   workflow_dispatch:
 
 jobs:
-  build-and-push:
+  build-and-push-runtime:
     runs-on: ubuntu-latest
     
     steps:
@@ -31,11 +31,11 @@ jobs:
           username: raahulrahl
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push versioned image
+      - name: Build and push runtime base image
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile.base
+          file: ./Dockerfile.runtime-base
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
@@ -44,5 +44,7 @@ jobs:
           cache-from: type=registry,ref=raahulrahl/bindu-runtime-base:buildcache
           cache-to: type=registry,ref=raahulrahl/bindu-runtime-base:buildcache,mode=max
 
-      - name: Image digest
-        run: echo "Image pushed successfully with version ${{ steps.version.outputs.VERSION }}"
+      - name: Summary
+        run: |
+          echo "✓ Runtime base image pushed successfully"
+          echo "Image: raahulrahl/bindu-runtime-base:${{ steps.version.outputs.VERSION }}"
