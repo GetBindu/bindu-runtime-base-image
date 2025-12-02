@@ -37,6 +37,7 @@ jobs:
           context: .
           file: ./Dockerfile.base
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: |
             raahulrahl/bindu-runtime-base:${{ steps.version.outputs.VERSION }}
             raahulrahl/bindu-runtime-base:latest
