@@ -15,7 +15,7 @@ A minimal, multi-runtime base image for Bindu agents, combining Python 3.12 (via
 ### Pull the image
 
 ```bash
-docker pull raahulrahl/getbindu/bindu-base:latest
+docker pull raahulrahl/getbindu/bindu-runtime-base:latest
 ```
 
 ## Building & Publishing

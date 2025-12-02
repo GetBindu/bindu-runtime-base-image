@@ -27,7 +27,7 @@ RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
 ENV PATH="/python/bin:$PATH"
 
 # OCI labels for base
-LABEL org.opencontainers.image.title="bindu-base"
+LABEL org.opencontainers.image.title="bindu-runtime-base"
 LABEL org.opencontainers.image.description="Base runtime for Bindu agents with Python 3.12 and Node.js 22"
 LABEL org.opencontainers.image.authors="raahul dutta <raahul@getbindu.com>"
 LABEL org.opencontainers.image.version="1.0.0"
